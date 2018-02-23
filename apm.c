@@ -352,14 +352,14 @@ PHP_RINIT_FUNCTION(apm)
 		zend_set_user_opcode_handler(ZEND_END_SILENCE, apm_end_silence_opcode_handler);
 
 		memset(&APM_G(request_data), 0, sizeof(struct apm_request_data));
-		if (APM_G(event_enabled)) {
+//		if (APM_G(event_enabled)) {
 			/* storing timestamp of request */
 			gettimeofday(&begin_tp, NULL);
 #ifdef HAVE_GETRUSAGE
 			memset(&begin_usg, 0, sizeof(struct rusage));
 			getrusage(RUSAGE_SELF, &begin_usg);
 #endif
-		}
+//		}
 
 		APM_DEBUG("Registering drivers\n");
 		driver_entry = APM_G(drivers);
